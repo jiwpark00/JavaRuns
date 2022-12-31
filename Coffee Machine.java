@@ -163,6 +163,11 @@ public class CoffeeMachine {
             // if (timesCalled == 5) {
             //     return;
             // }
+
+            // this is required because the program gives blank input - why not in the problem statement..
+            if (currentStatus.equals("")) {
+                currentStatus = scanner.nextLine();
+            }
             
             if (currentStatus.equals("buy")) {
                 timesCalled += 1; // useful for debugging
@@ -175,6 +180,7 @@ public class CoffeeMachine {
                 catch (Exception e) {
                     // user wanted to go back and entered "back"
                     System.out.println("Write action (buy, fill, take, remaining, exit): ");
+                    currentStatus = scanner.nextLine();
                     continue;
                 } 
                 
@@ -191,7 +197,7 @@ public class CoffeeMachine {
                             amtWater += amtWaterChange;
                             amtBeans += amtBeansChange;
                             amtCup += amtCupChange;
-                            amtMoneyChange += amtMoneyChange;
+                            amtMoney += amtMoneyChange;
                              }
                         else {
                             if (amtWater+amtWaterChange < 0) {
@@ -220,7 +226,7 @@ public class CoffeeMachine {
                             amtBeans += amtBeansChange;
                             amtMilk += amtMilkChange;
                             amtCup += amtCupChange;
-                            amtMoneyChange += amtMoneyChange;
+                            amtMoney += amtMoneyChange;
                              }
                         else {
                             if (amtWater+amtWaterChange < 0) {
@@ -252,7 +258,7 @@ public class CoffeeMachine {
                             amtBeans += amtBeansChange;
                             amtMilk += amtMilkChange;
                             amtCup += amtCupChange;
-                            amtMoneyChange += amtMoneyChange;
+                            amtMoney += amtMoneyChange;
                              }
                         else {
                             if (amtWater+amtWaterChange < 0) {
@@ -328,7 +334,6 @@ public class CoffeeMachine {
             }
             else {
                 timesCalled += 1; // useful for debugging
-                currentStatus = scanner.nextLine();
                 keepGoing = false;
                 return;
             }
